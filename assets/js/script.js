@@ -11,11 +11,16 @@ let apiKey = '4f4bcf1786f2eaa59d2b0d22913817d0';
 
 buttonElement.addEventListener('click', handleButtonClick);
 
-function handleButtonClick() {
+inputElement.focus();
+
+function handleButtonClick(e) {
     if (inputElement.value === '') {
+        console.log();
         alert('Please enter a location');
         return;
     }
+
+    forecastContainerElement.innerHTML = '';
 
     let locationName = inputElement.value;
 
@@ -61,4 +66,6 @@ function addForecast(data, days) {
             `;
 
     forecastContainerElement.innerHTML += htmlString;
+    inputElement.value = '';
+    inputElement.focus();
 }
